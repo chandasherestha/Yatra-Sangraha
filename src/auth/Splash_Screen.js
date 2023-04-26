@@ -14,6 +14,7 @@ const SplashScreen =({navigation})=> {
   }, []);
   return (
     <View style={{flex:1,backgroundColor:"#fff",justifyContent:'center',alignItems:'center',}}>
+      
      <Image
           source={require('../../assets/logo.jpg')}
           style={{width: 250, height: 250}}

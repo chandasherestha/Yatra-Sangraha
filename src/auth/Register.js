@@ -21,60 +21,58 @@ const Register = ({navigation}) => {
   };
   return (
     <View style={styles.Container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View>
-          <Text style={styles.MediumText}>Welcome to</Text>
-        </View>
-        <View>
-          <Text style={styles.SemiBoldText}>YATRA SANGRAHA</Text>
-        </View>
-        <View>
-          <Text style={styles.RegularHeading}>
-            Login to your existing account
-          </Text>
-        </View>
-        <View>
-          <Input
-            title="Full Name"
-            placeholder="Enter your email address"
-            placeholderTextColor="#B7C3CD"
-            value={username}
-            onChangeText={setUsername}
-            showMailIcon={true}
-            icon="user"
-          />
-        </View>
-        <View>
-          <Input
-            title="Email"
-            placeholder="Enter your email address"
-            placeholderTextColor="#B7C3CD"
-            value={username}
-            onChangeText={setUsername}
-            showMailIcon={true}
-            icon="mail"
-          />
-        </View>
-        <View>
-          <Input
-            title="Password"
-            placeholder="Enter your password"
-            placeholderTextColor="#B7C3CD"
-            value={password}
-            onChangeText={setPassword}
-            showMailIcon={true}
-            icon={passwordVisible ? 'eye' : 'eye-off'}
-          />
-        </View>
+      <View>
+        <Text style={styles.MediumText}>Welcome to</Text>
+      </View>
+      <View>
+        <Text style={styles.SemiBoldText}>YATRA SANGRAHA</Text>
+      </View>
+      <View>
+        <Text style={styles.RegularHeading}>
+          Login to your existing account
+        </Text>
+      </View>
+      <View>
+        <Input
+          title="Full Name"
+          placeholder="Enter your email address"
+          placeholderTextColor="#B7C3CD"
+          value={username}
+          onChangeText={setUsername}
+          showMailIcon={true}
+          icon="user"
+        />
+      </View>
+      <View>
+        <Input
+          title="Email"
+          placeholder="Enter your email address"
+          placeholderTextColor="#B7C3CD"
+          value={username}
+          onChangeText={setUsername}
+          showMailIcon={true}
+          icon="mail"
+        />
+      </View>
+      <View>
+        <Input
+          title="Password"
+          placeholder="Enter your password"
+          placeholderTextColor="#B7C3CD"
+          value={password}
+          onChangeText={setPassword}
+          showMailIcon={true}
+          icon={passwordVisible ? 'eye' : 'eye-off'}
+        />
+      </View>
 
-        <View>
-          <Button
-            title="Register"
-            buttonStyle={{marginTop: 150, width: '100%'}}
-            onPress={() => navigation.navigate('Home')}
-          />
-        </View>
-      </ScrollView>
+      <View style={styles.button}>
+        <Button
+          title="Register"
+          buttonStyle={{width: '100%'}}
+          onPress={() => navigation.navigate('Home')}
+        />
+      </View>
     </View>
   );
 };
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
   Container: {flex: 1, backgroundColor: '#fff', padding: 20},
   MediumText: {
     fontSize: 20,
-    marginTop: 100,
+    marginTop: 50,
     color: '#2866AB',
     fontFamily: 'Poppins-SemiBold',
   },
@@ -97,6 +95,7 @@ const styles = StyleSheet.create({
     color: '#5FBDC5',
     marginTop: 5,
   },
+  button: {margintop: 50},
 });
 
 export default Register;

@@ -58,18 +58,14 @@ const Login = ({navigation}) => {
       <View style={styles.ForgetContainer}>
         <Text style={styles.Forget}>Forget Password?</Text>
       </View>
-      <View>
-        <Button
-          title="Login"
-          buttonStyle={{marginTop: 150, width: '100%'}}
-          onPress={() => navigation.navigate('Home')}
-        />
-      </View>
-      <View style={styles.Bottom}>
-        <Text style={styles.CreateAccount}>No account ?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-          <Text style={styles.Register}>Register</Text>
-        </TouchableOpacity>
+      <View style={styles.login}>
+        <Button title="Login" onPress={() => navigation.navigate('Home')} />
+        <View style={styles.Bottom}>
+          <Text style={styles.CreateAccount}>No account ?</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <Text style={styles.Register}>Register</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -78,7 +74,7 @@ const styles = StyleSheet.create({
   Container: {flex: 1, backgroundColor: '#fff', padding: 20},
   MediumText: {
     fontSize: 20,
-    marginTop: 100,
+    marginTop: 50,
     color: '#2866AB',
     fontFamily: 'Poppins-SemiBold',
   },
@@ -96,12 +92,15 @@ const styles = StyleSheet.create({
 
   Forget: {fontSize: 12, fontFamily: 'Poppins-SemiBold', color: '#2866AB'},
   ForgetContainer: {marginTop: 10, alignItems: 'flex-end'},
-
+  login: {
+  marginTop:50
+   
+  },
   Bottom: {
-    marginTop: 12,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: 12,
+    marginBottom: 10,
   },
   CreateAccount: {
     fontSize: 14,

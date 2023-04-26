@@ -2,10 +2,11 @@ import React from 'react';
 import {View, Image, Text, StyleSheet,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Foundation';
 
-const HotelCard = ({imageSource, title, subtitle, icon, iconSize = 8}) => {
+const HotelCard = ({imageSource, title, subtitle, onPress, iconSize = 8,}) => {
   const icons = new Array(5).fill(null);
   return (
-    <View style={styles.card}>
+   <TouchableOpacity activeOpacity={1} onPress={onPress}>
+     <View style={styles.card}>
       <Image source={imageSource} style={styles.cardImage} />
       <View style={styles.cardRight}>
         <Text style={styles.title}>{title}</Text>
@@ -15,11 +16,12 @@ const HotelCard = ({imageSource, title, subtitle, icon, iconSize = 8}) => {
         <Icon key={index} name="star" size={iconSize} style={{marginLeft:3,color:'#FFD700'}} />
       ))}
     </View>
-        <TouchableOpacity style={{}} >
+        <TouchableOpacity onPress={onPress}>
           <Text style={styles.view}>View all</Text>
           </TouchableOpacity>
       </View>
     </View>
+   </TouchableOpacity>
   );
 };
 const styles = StyleSheet.create({
@@ -35,9 +37,9 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    shadowOpacity: 0.1,
+    shadowRadius: 1,
+    elevation: 1,
     marginBottom:20
   },
   cardImage: {width: '35%', height: 110, borderRadius: 20, marginRight: 10},

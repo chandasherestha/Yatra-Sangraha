@@ -1,11 +1,12 @@
-import {View, Text, StyleSheet, ScrollView, Image} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Image,} from 'react-native';
 import React, {useState} from 'react';
 import {PopularButton, SearchBar} from '../DesignSystem';
 import MyButton from '../DesignSystem/category/Category';
 import HotelCard from '../DesignSystem/hotelcard/HotelCard';
+import Foods from '../foods';
 
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [searchText, setSearchText] = useState('');
 
   const handleSearch = text => {
@@ -17,27 +18,32 @@ const Home = () => {
       id: 1,
       imageSource: require('../../assets/Vector1.png'),
       buttonText: 'Popular',
+      onPress:()=>navigation.navigate('Home')
     },
     {
       id: 2,
       imageSource: require('../../assets/Vector2.png'),
-      buttonText: 'Popular',
+      buttonText: 'Temple',
+      onPress:()=>navigation.navigate('Temple')
     },
     {
       id: 3,
       imageSource: require('../../assets/Vector1.png'),
-      buttonText: 'Popular',
+      buttonText: 'Mountains',
+      onPress:()=>navigation.navigate('')
     },
     {
       id: 4,
       imageSource: require('../../assets/Vector2.png'),
-      buttonText: 'Popular',
+      buttonText: 'Foods',
+      onPress:()=>navigation.navigate('Foods')
     },
+   
   ];
   const popularButtons = [
-    {imageSource: require('../../assets/popular1.png'), text: 'Annapurna'},
-    {imageSource: require('../../assets/popular2.png'), text: 'Langtang'},
-    {imageSource: require('../../assets/popular3.png'), text: 'Everest'},
+    {imageSource: require('../../assets/popular1.png'), text: 'Annapurna',icon: require('../../assets/blueLocation.png')},
+    {imageSource: require('../../assets/popular2.png'), text: 'Langtang',icon: require('../../assets/blueLocation.png')},
+    {imageSource: require('../../assets/popular3.png'), text: 'Everest',icon: require('../../assets/blueLocation.png')},
   ];
   const hotel = [
     {
@@ -51,6 +57,7 @@ const Home = () => {
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       icon: 'star',
       iconSize: 20,
+      onPress:()=>navigation.navigate('HotelDetails')
     },
     {
       imageSource: require('../../assets/hotel1.png'),
@@ -63,6 +70,7 @@ const Home = () => {
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
       icon: 'star',
       iconSize: 20,
+      onPress:()=>navigation.navigate('HotelDetails')
     },
   ];
   return (
@@ -81,8 +89,8 @@ const Home = () => {
                 key={index}
                 imageSource={item.imageSource}
                 buttonText={item.buttonText}
-                // onPress={() => console.log(`Pressed ${item.buttonText}`)}
                 isOdd={index % 2 === 0 ? false : true}
+                onPress={item.onPress}
               />
             ))}
           </View>
@@ -129,6 +137,7 @@ const Home = () => {
               subtitle={hotel.subtitle}
               icon={hotel.icon}
               iconSize={hotel.iconSize}
+              onPress={hotel.onPress}
             />
           ))}
         </View>
@@ -139,7 +148,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {flex: 1, backgroundColor: '#fff', padding: 20},
   title: {fontSize: 20, fontFamily: 'Poppins-SemiBold', color: '#073059'},
-  categoryList: {flexDirection: 'row', justifyContent: 'space-around'},
+  categoryList: {flexDirection: 'row', justifyContent: 'space-around',},
   titleIcon: {flexDirection: 'row', marginTop: 20},
   textIcon: {
     fontSize: 20,
@@ -148,7 +157,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   card: {borderRadius: 20, width: '100%'},
-  cardContainer: {position: 'absolute', top: 180, marginLeft: 15},
+  cardContainer: {position: 'absolute', bottom:20, marginLeft: 15},
   locationTitle: {
     color: '#fff',
     marginLeft: 10,

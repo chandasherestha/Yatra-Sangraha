@@ -7,7 +7,7 @@ const MyButton = ({ onPress, imageSource, buttonText, isOdd }) => {
 
   return (
     <View style={[styles.item, { backgroundColor: buttonColor }]}>
-      <TouchableOpacity style={styles.button} onPress={onPress}>
+      <TouchableOpacity activeOpacity={1} style={styles.button} onPress={onPress}>
         <Image style={styles.image} source={imageSource} />
         <Text style={[styles.text, { color: textColor }]}>{buttonText}</Text>
       </TouchableOpacity>
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   text: {
+    width:'100%',
     marginTop: 10,
     fontSize: 14,
     fontFamily: 'Poppins-Medium',

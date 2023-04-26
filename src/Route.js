@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -15,13 +15,20 @@ import Map from './map/Map';
 import Booking from './booking/Booking';
 import Favourite from './favourite/index'
 import Profile from './profile/index'
+import HotelDetails from './hoteldetails/index';
+import FoodDetails from './foods/fooddetails';
+import Foods from './foods';
+import Temple from './temple';
+import Payment from './booking/payment';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Route = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreen">
+      <Stack.Navigator 
+      initialRouteName="SplashScreen"
+      >
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
@@ -47,6 +54,32 @@ const Route = () => {
           component={BottomTabNavigator}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="HotelDetails"
+          component={HotelDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Foods"
+          component={Foods}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FoodDetails"
+          component={FoodDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Temple"
+          component={Temple}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={Payment}
+          options={{ headerShown: false }}
+        />
+      
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -54,6 +87,7 @@ const Route = () => {
 
 const BottomTabNavigator = () => {
   return (
+    <View style={{ flex: 1 }}>
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({ route }) => ({
@@ -132,7 +166,8 @@ const BottomTabNavigator = () => {
           title: 'Profile',
         }}
       />
-    </Tab.Navigator>
+    </Tab.Navigator></View>
+   
   );
 };
 
