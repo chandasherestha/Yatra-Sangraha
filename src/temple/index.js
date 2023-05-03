@@ -17,25 +17,25 @@ const Temple = ({navigation}) => {
       imageSource: require('../../assets/temple1.png'),
       text: 'Swayambhunath Temple',
       icon: require('../../assets/blueLocation.png'),
-      onPress: () => navigation.navigate(''),
+      onPress: () => navigation.navigate('TempleDetail'),
     },
     {
       imageSource: require('../../assets/temple2.png'),
       text: 'Swayambhunath Temple',
       icon: require('../../assets/blueLocation.png'),
-      onPress: () => navigation.navigate(''),
+      onPress: () => navigation.navigate('TempleDetail'),
     },
     {
       imageSource: require('../../assets/temple3.png'),
       text: 'Swayambhunath Temple',
       icon: require('../../assets/blueLocation.png'),
-      onPress: () => navigation.navigate(''),
+      onPress: () => navigation.navigate('TempleDetail'),
     },
     {
       imageSource: require('../../assets/temple4.png'),
       text: 'Swayambhunath Temple',
       icon: require('../../assets/blueLocation.png'),
-      onPress: () => navigation.navigate(''),
+      onPress: () => navigation.navigate('TempleDetail'),
     },
   ];
  
@@ -50,7 +50,7 @@ const Temple = ({navigation}) => {
           <Text style={styles.textIcon}>Temple </Text>
         </View>
         <View style={{marginTop: 20}}>
-          <TouchableOpacity onPress={() => navigation.navigate('')}>
+          <TouchableOpacity onPress={() => navigation.navigate('TempleDetail')}>
             <Image
               source={require('../../assets/temple1.png')}
               style={styles.card}

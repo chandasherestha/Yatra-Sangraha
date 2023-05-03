@@ -20,6 +20,11 @@ import FoodDetails from './foods/fooddetails';
 import Foods from './foods';
 import Temple from './temple';
 import Payment from './booking/payment';
+import BookingSummary from './booking/BookingSummary';
+import Information from './profile/information';
+import PasswordUpdate from './profile/passwordUpdate';
+import TempleDetail from './temple/TempleDetail';
+import Mountain from './mountain';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -79,6 +84,31 @@ const Route = () => {
           component={Payment}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="BookingSummary"
+          component={BookingSummary}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Information"
+          component={Information}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="PasswordUpdate"
+          component={PasswordUpdate}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="TempleDetail"
+          component={TempleDetail}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Mountain"
+          component={Mountain}
+          options={{ headerShown: false }}
+        />
       
       </Stack.Navigator>
     </NavigationContainer>
@@ -103,7 +133,7 @@ const BottomTabNavigator = () => {
           } else if (route.name === 'Explore') {
             iconName = focused ? 'earth' : 'earth';
           } else if (route.name === 'Map') {
-            iconName = focused ? 'egoogle-maps' : 'google-maps';
+            iconName = focused ? 'google-maps' : 'google-maps';
           }else if (route.name === 'Booking') {
             iconName = focused ? 'calendar-check' : 'calendar-check';
           }else if (route.name === 'Favourite') {

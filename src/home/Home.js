@@ -30,7 +30,7 @@ const Home = ({navigation}) => {
       id: 3,
       imageSource: require('../../assets/Vector1.png'),
       buttonText: 'Mountains',
-      onPress:()=>navigation.navigate('')
+      onPress:()=>navigation.navigate('Mountain')
     },
     {
       id: 4,

@@ -1,8 +1,24 @@
-import React, { useState } from 'react';
-import { View, TextInput, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import {
+  View,
+  TextInput,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import MailIcon from 'react-native-vector-icons/Feather';
 
-const Input = ({ title, placeholder, placeholderTextColor, value, onChangeText, showMailIcon, icon }) => {
+const Input = ({
+  title,
+  placeholder,
+  placeholderTextColor,
+  value,
+  onChangeText,
+  showMailIcon,
+  icon,
+  style,
+  onFocus
+}) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const handleTogglePasswordVisibility = () => {
@@ -18,13 +34,22 @@ const Input = ({ title, placeholder, placeholderTextColor, value, onChangeText, 
         <TextInput
           placeholder={placeholder}
           placeholderTextColor={placeholderTextColor}
+          style={style}
           value={value}
           onChangeText={onChangeText}
           secureTextEntry={!isPasswordVisible && title === 'Password'}
+          onFocus={onFocus}
         />
-        {showMailIcon && <TouchableOpacity onPress={handleTogglePasswordVisibility}>
-          <MailIcon name={icon} size={25} color="#5FBDC5" style={styles.MailIcon} />
-        </TouchableOpacity>}
+        {showMailIcon && (
+          <TouchableOpacity onPress={handleTogglePasswordVisibility}>
+            <MailIcon
+              name={icon}
+              size={25}
+              color="#5FBDC5"
+              style={styles.MailIcon}
+            />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
@@ -39,7 +64,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: '#5FBDC5',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
+    padding: 6,
   },
   InputTitle: {
     fontSize: 12,
@@ -47,7 +73,7 @@ const styles = StyleSheet.create({
     color: '#073059',
     marginTop: 24,
   },
-  MailIcon: { marginTop: 10 },
+  MailIcon: {marginTop: 10},
 });
 
 export default Input;
