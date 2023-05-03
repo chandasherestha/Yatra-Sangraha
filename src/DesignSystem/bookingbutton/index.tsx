@@ -28,10 +28,10 @@ const BookingButton = ({
   );
 };
 const styles = StyleSheet.create({
-  container: {flexDirection: 'row',marginTop:20},
+  container: {flexDirection: 'row',marginTop:20,width:'100%',justifyContent:'space-between'},
   image: {width: '30%'},
   imgStyle: {borderRadius: 20, height: 130},
-  text: {width: '70%'},
+  text: {width: '65%'},
   hotelName: {
     fontFamily: 'Poppins-SemiBold',
     fontSize: 16,

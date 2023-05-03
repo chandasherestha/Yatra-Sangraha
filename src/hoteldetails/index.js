@@ -7,15 +7,49 @@ import {
   Modal,
   Pressable,
   TouchableOpacity,
-  TextInput,
+  TextInput,BackHandler
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import Icon from 'react-native-vector-icons/Foundation';
 import {Services} from '../DesignSystem';
 import {Review} from '../DesignSystem';
 import Button from '../DesignSystem/button';
+import { useFocusEffect } from '@react-navigation/native';
 
 const HotelDetails = ({navigation, size, initialRating}) => {
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        navigation.navigate('Login');
+       
+        // Return true to stop default back navigaton
+        // Return false to keep default back navigaton
+        return true;
+      };
+
+      // Add Event Listener for hardwareBackPress
+      BackHandler.addEventListener(
+        'hardwareBackPress',
+        onBackPress
+      );
+
+      return () => {
+        // Once the Screen gets blur Remove Event Listener
+        BackHandler.removeEventListener(
+          'hardwareBackPress',
+          onBackPress
+        );
+      };
+    }, []),
+  );
+
+
+
+
+
+
+
+
   const [modalVisible, setModalVisible] = useState(true);
   const [rating, setRating] = useState(initialRating || 0);
   const rate = [
@@ -99,11 +133,12 @@ const HotelDetails = ({navigation, size, initialRating}) => {
   );
   return (
     <View style={styles.container}>
-      <View>
+    
+   
         <Image source={require('../../assets/card.png')} style={styles.image} />
-      </View>
+    
       <Modal
-        animationType={'fade'}
+        animationType={'none'}
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -330,6 +365,8 @@ const HotelDetails = ({navigation, size, initialRating}) => {
           </View>
         </View>
       </Modal>
+
+
     </View>
   );
 };

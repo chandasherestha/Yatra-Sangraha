@@ -11,7 +11,11 @@ import SearchHotel from './hotels';
 import Services from './services';
 import Review from './review';
 import Categories from './categories';
-
+import MyTextInput from './input';
+import FavouriteSection from './favourite';
+import Places from './places';
+import Btn from './mybutton';
+import Interest from './interest';
 export {
   typography,
   button,
@@ -26,4 +30,9 @@ export {
   Services,
   Review,
   Categories,
+  MyTextInput,
+  FavouriteSection,
+  Places,
+ Btn,
+ Interest
 };
